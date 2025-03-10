@@ -52,7 +52,9 @@ export default function Header({ categories, products }: HeaderProps) {
 
         {categories.map((category) => (
           <li key={category.id}>
-            <NavLink to={category.slug}>{category.title} </NavLink>
+            <NavLink to={`/category/${category.slug}`}>
+              {category.title}{' '}
+            </NavLink>
           </li>
         ))}
       </ul>

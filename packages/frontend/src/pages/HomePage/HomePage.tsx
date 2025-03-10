@@ -32,7 +32,7 @@ export default function HomePage({ categories, products }: HomePageProps) {
         <ul className="products">
           {products.map((product) => (
             <li key={product.id}>
-              <NavLink to={product.slug}>
+              <NavLink to={`articles/${product.slug}`}>
                 <ProductCard product={product} />
               </NavLink>
             </li>

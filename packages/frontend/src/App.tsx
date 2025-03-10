@@ -10,6 +10,7 @@ import { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router';
 import CategoriesPage from '@pages/CategoriesPage/CategoriesPage';
 import ProductPage from '@pages/ProductPage/ProductPage';
+import CategoryPage from '@pages/categoryPage/CategoryPage';
 export default function App() {
   const [categoryTab, setCategoryTab] = useState<ICategory[]>([]);
   const [productTab, setProductTab] = useState<IProduct[]>([]);
@@ -36,8 +37,14 @@ export default function App() {
           />
 
           <Route
-            path="/:slug"
+            path="/articles/:slug"
             element={<ProductPage products={productTab} />}
+          />
+          <Route
+            path="/category/:slug"
+            element={
+              <CategoryPage products={productTab} categories={categoryTab} />
+            }
           />
 
           <Route

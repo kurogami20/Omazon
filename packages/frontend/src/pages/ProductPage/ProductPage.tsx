@@ -14,10 +14,12 @@ const ProductPage = ({ products }: ProductPage) => {
   return (
     <article>
       <h1>{product?.title}</h1>
+      <strong>{product?.tag?.text} </strong>
+      <strong>Catégorie: {product?.category?.title}</strong>
       <img src={product?.image} alt="" />
       {/* biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation> */}
       <div dangerouslySetInnerHTML={description} />
-      <p>{product?.price}€</p>
+      <strong>{product?.price}€</strong>
     </article>
   );
 };
