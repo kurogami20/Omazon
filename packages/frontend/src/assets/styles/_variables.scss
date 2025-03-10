@@ -1,0 +1,75 @@
+/* Colors */
+$main-lowest: #fff;
+$main-lower: #f5f5f5;
+$main-low: #e6e6e6;
+$main-grey: #d4d4d4;
+$main-medium: #37475a;
+$main-high: #232f3e;
+$main-higher: #131921;
+$main-highest: #000;
+
+$brand-primary: #f90;
+$brand-primary-border: #e68a00;
+$brand-primary-light: #febd68;
+$brand-secondary: #F7CA00;
+$brand-grey: #6f7373;
+
+$info-lower: #c8f3fa;
+$info-low: #66aab6;
+$info-medium: #007185;
+$info-high: #005a6a;
+$info-higher: #004450;
+
+$danger-lower: #fad0c8;
+$danger-low: #e06d88;
+$danger-medium: #cc0c39;
+$danger-high: #a30a2e;
+
+$transparency-invisible: rgba($main-highest, 0);
+$transparency-mask: rgba($main-highest, 0.04);
+$transparency-overlay: rgba($main-highest, 0.6);
+
+/* Effects */
+$shadow: 0 2px 4px 0 rgba($main-lowest, 0.13);
+$outline-primary: 0 0 0 2px $brand-primary, 0 0 0 3px rgba($brand-primary, 0.5);
+$outline-info: 0 0 0 3px $info-lower, inset 0 0 0 2px $main-lowest;
+$onerror: 0 0 0 3px $danger-lower, inset 0 0 0 2px $main-lowest;
+
+/* Fonts */
+$font-heading: 'Amazon Ember', sans-serif;
+$font-text: 'Amazon Ember', sans-serif;
+
+/* Font size */
+$font-size-smallest: 0.7rem;
+$font-size-small: 0.8rem;
+$font-size-medium: 0.9rem;
+$font-size-regular: 1rem;
+$font-size-large: 1.1rem;
+$font-size-larger: 1.2rem;
+$font-size-largest: 1.6rem;
+
+/* Font weight */
+$font-weight-normal: 400;
+$font-weight-bold: 500;
+$font-weight-bolder: 700;
+
+/* Radius */
+$radius-s: 4px;
+$radius-m: 8px;
+$radius-l: 36px;
+
+/* Spacing */
+$line: 1.5rem; /* 24px */
+$line-third: calc($line / 3); /* 8px */
+$line-half: calc($line / 2); /* 12px */
+
+/* Breakpoints */
+$breakpoint-sm: 490px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+$breakpoint-xxl: 1600px;
+
+/* Others */
+$z-index-max: 2147483647;
+

@@ -1,0 +1,17 @@
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+input, select, button {
+  border: none; 
+}
+
+button, option, select {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}

@@ -1,0 +1,14 @@
+@use "@assets/styles/_variables" as _v;
+
+.button {
+  cursor: pointer;
+  background-color: _v.$brand-primary;
+  border-radius: 35px;
+
+  width: fit-content;
+  padding: .4rem 1rem;
+
+  &:hover {
+    background-color: _v.$brand-secondary;
+  }
+}

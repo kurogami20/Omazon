@@ -1,0 +1,113 @@
+@use "@assets/styles/_variables" as _v;
+
+.home {
+
+  h2 {
+    font-size: _v.$font-size-largest;
+  }
+
+  .categories, .products {
+    display: grid;
+    justify-items: center;
+    gap: 2rem;
+    margin: 2rem 0 3rem 0;
+    
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    li {
+      width: 100%;
+      max-width: 250px;
+    }
+  }
+}
+
+.category {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 1.5rem;
+  text-align: center;
+
+  .container {
+    width: 100%;
+    aspect-ratio: 1 / 1;;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    
+    &::before {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.04);
+      border-radius: 50%;
+      content: "";
+    }
+
+    img {
+      aspect-ratio: 1 / 1;
+      object-fit: contain;
+      width: 60%;
+    }
+  }
+}
+
+.product {
+  cursor: pointer;
+  outline: 1px solid _v.$main-lower;
+
+  &::hover {
+    outline: 1px solid _v.$main-low;
+  }
+
+  .container {
+    width: 100%;
+    aspect-ratio: 1 / 1;;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    
+    &::before {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.04);
+      content: "";
+    }
+
+    img {
+      aspect-ratio: 1 / 1;
+      object-fit: contain;
+      width: 60%;
+    }
+  }
+
+  .details {
+    padding: .5rem;
+
+    .title {
+      font-size: _v.$font-size-medium;
+      font-weight: _v.$font-weight-normal;
+
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 3; /* number of lines to show */
+              line-clamp: 3;
+      -webkit-box-orient: vertical;
+    }
+
+    .price {
+      font-size: _v.$font-size-largest;
+      font-weight: _v.$font-weight-bold;
+      margin: 0.5rem 0;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+@use "@assets/styles/_variables" as _v;
+
+.app {
+  background-color: _v.$main-lowest;
+  font-family: _v.$font-text;
+
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 1fr minmax(0, 1280px) 1fr;
+
+  .header { grid-area: header; }
+  .main { grid-area: main; }
+  .footer { grid-area: footer; }
+
+  grid-template-areas: 
+    "header header header"
+    ". main ."
+    "footer footer footer"
+  ;
+}
+
+.main {
+  padding: 2rem;
+}

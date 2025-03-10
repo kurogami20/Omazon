@@ -1,0 +1,30 @@
+{
+  "name": "backend",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js | pino-pretty",
+    "lint": "eslint . --fix",
+    "db:create": "node migrations/01.create-tables.js",
+    "db:populate": "node migrations/02.populate-tables.js",
+    "db:reset": "pnpm db:create && pnpm db:populate"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.13.3",
+    "pino": "^9.6.0",
+    "sequelize": "^6.37.6",
+    "sqlite3": "^5.1.7",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.21.0",
+    "eslint": "^9.21.0",
+    "globals": "^16.0.0",
+    "pino-pretty": "^13.0.0"
+  }
+}

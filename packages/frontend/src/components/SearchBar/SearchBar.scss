@@ -1,0 +1,95 @@
+@use "@assets/styles/_variables" as _v;
+
+.search-bar {
+  display: flex;
+  height: 40px;
+
+  &:focus-within:not(:has(select:focus-visible)){
+    // Style the <form> when <input> is focused, but not when <select> is focused, like competitors do
+    outline: 3px solid _v.$brand-primary;
+    border-radius: _v.$radius-m;
+  }
+
+  select {
+    border-top-left-radius: _v.$radius-s;
+    border-bottom-left-radius: _v.$radius-s;
+    border-right: 1px solid _v.$main-grey;
+    
+    background-color: _v.$main-low;
+    color: _v.$main-high;
+    padding: 0 5px 0 5px;
+    
+    font-size: _v.$font-size-small;
+    font-weight: _v.$font-weight-bold;
+
+    &:hover {
+      background-color: _v.$main-grey;
+      color: _v.$main-higher;
+    }
+
+    &:focus-visible {
+      outline: 3px solid _v.$brand-primary;
+      z-index: 1; /* So that the outline overflow the text input */
+    }
+  }
+
+  .container {
+    width: 100%;
+    position: relative;
+    
+    input {
+      outline: none;
+      font-weight: 500;
+      font-size: _v.$font-size-medium;
+      width: 100%;
+      height: 100%;
+      padding: 0 .4rem;
+      min-width: 150px;
+    }
+
+    .results {
+      position: absolute;
+      background-color: _v.$main-lowest;
+      width: 100%;
+      
+      .result {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+        padding: .5rem;
+        font-size: _v.$font-size-medium;
+
+        &:hover {
+          background-color: _v.$main-lower;
+        }
+
+        span {
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+  }
+
+  button {
+    background-color: _v.$brand-primary-light;
+    border-top-right-radius: _v.$radius-s;
+    border-bottom-right-radius: _v.$radius-s;
+    padding: 0 .5rem;
+
+    &:hover {
+      background-color: _v.$brand-primary;
+    }
+  }
+
+  .magnifying-glass-icon {
+    min-width: 30px;
+    color: _v.$main-higher;
+
+    &.small {
+      min-width: 22px;
+      width: 22px;
+    }
+  }
+}
