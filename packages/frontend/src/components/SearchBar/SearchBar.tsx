@@ -14,6 +14,7 @@ export default function SearchBar({ categories, products }: SearchBarProps) {
     product.title.toLowerCase().includes(searchText.toLowerCase()),
   );
 
+  const hidden = searchText ? 'results' : 'results hidden';
   return (
     <form className="search-bar">
       <select>
@@ -43,7 +44,7 @@ export default function SearchBar({ categories, products }: SearchBarProps) {
         />
 
         {/* TODO : retirer la classe 'hidden' pour voir apparaitre les résultats, puis faire fonctionner la barre de recherche */}
-        <ul className="results hidden">
+        <ul className={hidden}>
           {filteredSearch.map((prod) => (
             <li className="result" key={prod.slug}>
               <MagnifyingGlassIcon className="magnifying-glass-icon small" />

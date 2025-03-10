@@ -7,6 +7,7 @@ import './Header.scss';
 // import products from '@data/products';
 import SearchBar from '@components/SearchBar/SearchBar';
 import type { ICategory, IProduct } from 'src/@types';
+import { NavLink } from 'react-router';
 
 interface HeaderProps {
   categories: ICategory[];
@@ -43,15 +44,15 @@ export default function Header({ categories, products }: HeaderProps) {
 
       <ul className="categories">
         <li>
-          <a href="/categories" className="all-categories">
+          <NavLink to={'/categories'} className="all-categories">
             <MenuIcon className="menu-icon" />
-            <span>Toutes les catégories</span>
-          </a>
+            <span>Toutes les catégories</span>{' '}
+          </NavLink>
         </li>
 
         {categories.map((category) => (
           <li key={category.id}>
-            <a href="#">{category.title}</a>
+            <NavLink to={category.slug}>{category.title} </NavLink>
           </li>
         ))}
       </ul>

@@ -4,6 +4,7 @@ import CategoryCard from '@components/category/category';
 import ProductCard from '@components/Product/Product';
 import './HomePage.scss';
 import type { ICategory, IProduct } from 'src/@types';
+import { NavLink } from 'react-router';
 
 interface HomePageProps {
   categories: ICategory[];
@@ -31,7 +32,9 @@ export default function HomePage({ categories, products }: HomePageProps) {
         <ul className="products">
           {products.map((product) => (
             <li key={product.id}>
-              <ProductCard product={product} />
+              <NavLink to={product.slug}>
+                <ProductCard product={product} />
+              </NavLink>
             </li>
           ))}
         </ul>

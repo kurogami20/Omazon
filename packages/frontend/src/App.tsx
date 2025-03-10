@@ -9,7 +9,7 @@ import prodFetch from './services/products';
 import { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router';
 import CategoriesPage from '@pages/CategoriesPage/CategoriesPage';
-
+import ProductPage from '@pages/ProductPage/ProductPage';
 export default function App() {
   const [categoryTab, setCategoryTab] = useState<ICategory[]>([]);
   const [productTab, setProductTab] = useState<IProduct[]>([]);
@@ -34,6 +34,12 @@ export default function App() {
               <HomePage categories={categoryTab} products={productTab} />
             }
           />
+
+          <Route
+            path="/:slug"
+            element={<ProductPage products={productTab} />}
+          />
+
           <Route
             path="/categories"
             element={<CategoriesPage categories={categoryTab} />}
