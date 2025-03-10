@@ -3,11 +3,17 @@ import CartIcon from '@assets/icons/cart.svg?react';
 import MenuIcon from '@assets/icons/menu.svg?react';
 import './Header.scss';
 
-import categories from '@data/categories';
-import products from '@data/products';
+// import categories from '@data/categories';
+// import products from '@data/products';
 import SearchBar from '@components/SearchBar/SearchBar';
+import type { ICategory, IProduct } from 'src/@types';
 
-export default function Header() {
+interface HeaderProps {
+  categories: ICategory[];
+  products: IProduct[];
+}
+
+export default function Header({ categories, products }: HeaderProps) {
   return (
     <header className="header">
       <a href="/" className="logo">

@@ -1,10 +1,16 @@
-import categories from "@data/categories";
-import products from "@data/products";
-import CategoryCard from "@components/category/category";
-import ProductCard from "@components/Product/Product";
-import "./HomePage.scss";
+// import categories from '@data/categories';
+// import products from '@data/products';
+import CategoryCard from '@components/category/category';
+import ProductCard from '@components/Product/Product';
+import './HomePage.scss';
+import type { ICategory, IProduct } from 'src/@types';
 
-export default function HomePage() {
+interface HomePageProps {
+  categories: ICategory[];
+  products: IProduct[];
+}
+
+export default function HomePage({ categories, products }: HomePageProps) {
   return (
     <div className="home">
       <section>
@@ -25,7 +31,7 @@ export default function HomePage() {
         <ul className="products">
           {products.map((product) => (
             <li key={product.id}>
-             <ProductCard product={product} />
+              <ProductCard product={product} />
             </li>
           ))}
         </ul>

@@ -1,8 +1,8 @@
 import MagnifyingGlassIcon from '@assets/icons/magnifying-glass.svg?react';
 import type { ICategory, IProduct } from 'src/@types';
 import './SearchBar.scss';
-import { useState } from 'react';
-
+import { useEffect, useState } from 'react';
+import cateFetch from '../../services/categories';
 interface SearchBarProps {
   categories: ICategory[];
   products: IProduct[];
@@ -13,7 +13,7 @@ export default function SearchBar({ categories, products }: SearchBarProps) {
   const filteredSearch = products.filter((product) =>
     product.title.toLowerCase().includes(searchText.toLowerCase()),
   );
-  console.log(filteredSearch);
+
   return (
     <form className="search-bar">
       <select>
@@ -34,7 +34,7 @@ export default function SearchBar({ categories, products }: SearchBarProps) {
             const container = event.currentTarget.closest('.container');
             const ulElm = container?.querySelector('ul');
             console.log(ulElm);
-            if (searchText === '') {
+            if (!filteredSearch) {
               ulElm?.classList.add('hidden');
             } else {
               ulElm?.classList.remove('hidden');
