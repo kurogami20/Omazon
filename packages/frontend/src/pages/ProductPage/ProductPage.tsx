@@ -11,12 +11,16 @@ const ProductPage = ({ products }: ProductPage) => {
   const product = products.find((prod) => prod.slug === slug.slug);
   console.log(product);
   const description = { __html: DOMPurify.sanitize(product?.description) };
+  if (document.querySelector('#tag')) {
+    document.querySelector('#tag').style.color = '#FF9900';
+  }
   return (
     <article>
       <h1>{product?.title}</h1>
-      <strong>{product?.tag?.text} </strong>
+
       <strong>Catégorie: {product?.category?.title}</strong>
       <img src={product?.image} alt="" />
+      <strong id="tag">{product?.tag?.text} </strong>
       {/* biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation> */}
       <div dangerouslySetInnerHTML={description} />
       <strong>{product?.price}€</strong>

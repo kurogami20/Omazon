@@ -12,9 +12,10 @@ import { NavLink } from 'react-router';
 interface HeaderProps {
   categories: ICategory[];
   products: IProduct[];
+  search: React.Dispatch<React.SetStateAction<IProduct[]>>;
 }
 
-export default function Header({ categories, products }: HeaderProps) {
+export default function Header({ categories, products, search }: HeaderProps) {
   return (
     <header className="header">
       <a href="/" className="logo">
@@ -22,7 +23,11 @@ export default function Header({ categories, products }: HeaderProps) {
       </a>
 
       <div className="search">
-        <SearchBar categories={categories} products={products} />
+        <SearchBar
+          categories={categories}
+          products={products}
+          search={search}
+        />
       </div>
 
       <nav className="d-contents">

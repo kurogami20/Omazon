@@ -26,7 +26,7 @@ const CategoryPage = ({ categories, products }: CategoryPageProps) => {
             <ul className="products">
               {productFromCategory.map((product) => (
                 <li key={product.id}>
-                  <NavLink to={`articles/${product.slug}`}>
+                  <NavLink to={`/articles/${product.slug}`}>
                     <ProductCard product={product} />
                   </NavLink>
                 </li>

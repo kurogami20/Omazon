@@ -1,22 +1,45 @@
 import MagnifyingGlassIcon from '@assets/icons/magnifying-glass.svg?react';
 import type { ICategory, IProduct } from 'src/@types';
 import './SearchBar.scss';
-import { useEffect, useState } from 'react';
-import cateFetch from '../../services/categories';
+import { FormEvent, useState } from 'react';
+import { NavLink } from 'react-router';
 interface SearchBarProps {
   categories: ICategory[];
   products: IProduct[];
+  search: React.Dispatch<React.SetStateAction<IProduct[]>>;
 }
 
-export default function SearchBar({ categories, products }: SearchBarProps) {
+export default function SearchBar({
+  categories,
+  products,
+  search,
+}: SearchBarProps) {
   const [searchText, setSearchText] = useState('');
   const filteredSearch = products.filter((product) =>
     product.title.toLowerCase().includes(searchText.toLowerCase()),
   );
 
   const hidden = searchText ? 'results' : 'results hidden';
+
+  function searchSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const productFiltered = products.filter((product) =>
+      product.title.toLowerCase().includes(searchText.toLowerCase()),
+    );
+    if (productFiltered) {
+      search(productFiltered);
+      document.querySelector('#category_home')?.classList.add('hidden');
+    }
+    // event.currentTarget.reset();
+  }
+
   return (
-    <form className="search-bar">
+    <form
+      className="search-bar"
+      onSubmit={(event) => {
+        searchSubmit(event);
+      }}
+    >
       <select>
         <option>Toutes nos catégories</option>
         {categories.map((category) => (
@@ -32,23 +55,24 @@ export default function SearchBar({ categories, products }: SearchBarProps) {
           value={searchText}
           onChange={(event) => {
             setSearchText(event.currentTarget.value);
-            const container = event.currentTarget.closest('.container');
-            const ulElm = container?.querySelector('ul');
-            console.log(ulElm);
-            if (!filteredSearch) {
-              ulElm?.classList.add('hidden');
-            } else {
-              ulElm?.classList.remove('hidden');
-            }
           }}
         />
 
         {/* TODO : retirer la classe 'hidden' pour voir apparaitre les résultats, puis faire fonctionner la barre de recherche */}
         <ul className={hidden}>
           {filteredSearch.map((prod) => (
-            <li className="result" key={prod.slug}>
+            <li
+              className="result"
+              key={prod.slug}
+              onClick={() => {
+                setSearchText('');
+              }}
+            >
               <MagnifyingGlassIcon className="magnifying-glass-icon small" />
-              <span>{prod.title}</span>
+              <span>
+                {' '}
+                <NavLink to={`articles/${prod.slug}`}>{prod.title}</NavLink>
+              </span>
             </li>
           ))}
         </ul>

@@ -15,25 +15,31 @@ import NotFound from '@pages/NotFound/NotFound';
 export default function App() {
   const [categoryTab, setCategoryTab] = useState<ICategory[]>([]);
   const [productTab, setProductTab] = useState<IProduct[]>([]);
+  const [productSearched, setProductSearched] = useState<IProduct[]>([]);
   useEffect(() => {
     async function getCategory() {
       const categories = await cateFetch.all();
       const products = await prodFetch.all();
       setCategoryTab(categories);
       setProductTab(products);
+      setProductSearched(products);
     }
     getCategory();
   }, []);
   return (
     <div className="app">
-      <Header categories={categoryTab} products={productTab} />
+      <Header
+        categories={categoryTab}
+        products={productTab}
+        search={setProductSearched}
+      />
 
       <main className="main">
         <Routes>
           <Route
             path="/"
             element={
-              <HomePage categories={categoryTab} products={productTab} />
+              <HomePage categories={categoryTab} products={productSearched} />
             }
           />
 

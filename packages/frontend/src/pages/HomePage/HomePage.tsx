@@ -5,6 +5,7 @@ import ProductCard from '@components/Product/Product';
 import './HomePage.scss';
 import type { ICategory, IProduct } from 'src/@types';
 import { NavLink } from 'react-router';
+import { useState } from 'react';
 
 interface HomePageProps {
   categories: ICategory[];
@@ -14,7 +15,7 @@ interface HomePageProps {
 export default function HomePage({ categories, products }: HomePageProps) {
   return (
     <div className="home">
-      <section>
+      <section id="category_home">
         <h2>Catégories à l'honneur</h2>
 
         <ul className="categories">
