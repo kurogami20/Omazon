@@ -1,21 +1,21 @@
-import omazonLogoLight from "@assets/images/omazon-light.svg"
-import CartIcon from "@assets/icons/cart.svg?react"
-import MenuIcon from "@assets/icons/menu.svg?react"
-import "./Header.scss"
+import omazonLogoLight from '@assets/images/omazon-light.svg';
+import CartIcon from '@assets/icons/cart.svg?react';
+import MenuIcon from '@assets/icons/menu.svg?react';
+import './Header.scss';
 
-import categories from "@data/categories"
-import SearchBar from "@components/SearchBar/SearchBar"
+import categories from '@data/categories';
+import products from '@data/products';
+import SearchBar from '@components/SearchBar/SearchBar';
 
 export default function Header() {
   return (
     <header className="header">
-
       <a href="/" className="logo">
         <img src={omazonLogoLight} alt="Logo Omazon" />
       </a>
 
       <div className="search">
-        <SearchBar categories={categories} />
+        <SearchBar categories={categories} products={products} />
       </div>
 
       <nav className="d-contents">
@@ -28,7 +28,7 @@ export default function Header() {
           <li className="cart">
             <a href="#" className="cart-link">
               <span className="cart-count">0</span>
-              <CartIcon className="cart-icon"/>
+              <CartIcon className="cart-icon" />
               <span className="cart-text bold">Panier</span>
             </a>
           </li>
@@ -43,15 +43,12 @@ export default function Header() {
           </a>
         </li>
 
-        {categories.map(category => 
+        {categories.map((category) => (
           <li key={category.id}>
-            <a href="#">
-              {category.title}
-            </a>
+            <a href="#">{category.title}</a>
           </li>
-        )}
+        ))}
       </ul>
-
     </header>
-  )
+  );
 }
