@@ -7,6 +7,7 @@ import type { ICategory, IProduct } from './@types';
 import cateFetch from './services/categories';
 import prodFetch from './services/products';
 import { useEffect, useState } from 'react';
+import { Route, Routes } from 'react-router';
 
 export default function App() {
   const [categoryTab, setCategoryTab] = useState<ICategory[]>([]);
@@ -25,7 +26,14 @@ export default function App() {
       <Header categories={categoryTab} products={productTab} />
 
       <main className="main">
-        <HomePage categories={categoryTab} products={productTab} />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <HomePage categories={categoryTab} products={productTab} />
+            }
+          />
+        </Routes>
       </main>
 
       <Footer />
