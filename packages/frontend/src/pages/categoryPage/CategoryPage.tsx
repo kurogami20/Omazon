@@ -20,17 +20,22 @@ const CategoryPage = ({ categories, products }: CategoryPageProps) => {
         <h2>{category?.title}</h2>
       </section>
       <section>
-        <h2>Tous les produits de {category?.title} </h2>
-
-        <ul className="products">
-          {productFromCategory.map((product) => (
-            <li key={product.id}>
-              <NavLink to={`articles/${product.slug}`}>
-                <ProductCard product={product} />
-              </NavLink>
-            </li>
-          ))}
-        </ul>
+        {productFromCategory[0] ? (
+          <>
+            <h2>Tous les produits de {category?.title} </h2>
+            <ul className="products">
+              {productFromCategory.map((product) => (
+                <li key={product.id}>
+                  <NavLink to={`articles/${product.slug}`}>
+                    <ProductCard product={product} />
+                  </NavLink>
+                </li>
+              ))}
+            </ul>
+          </>
+        ) : (
+          <p>Pas encore d'articles</p>
+        )}
       </section>
     </div>
   );

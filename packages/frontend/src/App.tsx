@@ -11,6 +11,7 @@ import { Route, Routes } from 'react-router';
 import CategoriesPage from '@pages/CategoriesPage/CategoriesPage';
 import ProductPage from '@pages/ProductPage/ProductPage';
 import CategoryPage from '@pages/categoryPage/CategoryPage';
+import NotFound from '@pages/NotFound/NotFound';
 export default function App() {
   const [categoryTab, setCategoryTab] = useState<ICategory[]>([]);
   const [productTab, setProductTab] = useState<IProduct[]>([]);
@@ -51,6 +52,7 @@ export default function App() {
             path="/categories"
             element={<CategoriesPage categories={categoryTab} />}
           />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
 
