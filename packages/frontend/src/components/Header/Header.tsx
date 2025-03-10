@@ -43,7 +43,7 @@ export default function Header({ categories, products }: HeaderProps) {
 
       <ul className="categories">
         <li>
-          <a href="#" className="all-categories">
+          <a href="/categories" className="all-categories">
             <MenuIcon className="menu-icon" />
             <span>Toutes les catégories</span>
           </a>

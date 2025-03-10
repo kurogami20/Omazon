@@ -8,6 +8,7 @@ import cateFetch from './services/categories';
 import prodFetch from './services/products';
 import { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router';
+import CategoriesPage from '@pages/CategoriesPage/CategoriesPage';
 
 export default function App() {
   const [categoryTab, setCategoryTab] = useState<ICategory[]>([]);
@@ -32,6 +33,10 @@ export default function App() {
             element={
               <HomePage categories={categoryTab} products={productTab} />
             }
+          />
+          <Route
+            path="/categories"
+            element={<CategoriesPage categories={categoryTab} />}
           />
         </Routes>
       </main>

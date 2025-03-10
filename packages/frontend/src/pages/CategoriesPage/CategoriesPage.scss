@@ -1,0 +1,57 @@
+@use "@assets/styles/_variables" as _v;
+
+.cat {
+
+  h2 {
+    font-size: _v.$font-size-largest;
+  }
+
+  .categories{
+    display: grid;
+    justify-items: center;
+    gap: 2rem;
+    margin: 2rem 0 3rem 0;
+    
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    li {
+      width: 100%;
+      max-width: 250px;
+    }
+  }
+}
+
+.category {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 1.5rem;
+  text-align: center;
+
+  .container {
+    width: 100%;
+    aspect-ratio: 1 / 1;;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    
+    &::before {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.04);
+      border-radius: 50%;
+      content: "";
+    }
+
+    img {
+      aspect-ratio: 1 / 1;
+      object-fit: contain;
+      width: 60%;
+    }
+  }
+}
