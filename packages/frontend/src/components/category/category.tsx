@@ -7,7 +7,7 @@ interface CategoryProps {
 
 const Category = ({ category }: CategoryProps) => {
   return (
-    <NavLink to={`category/${category.slug}`} className="category">
+    <NavLink to={`/category/${category.slug}`} className="category">
       <div className="container">
         <img src={category.image} alt={category.title} />
       </div>

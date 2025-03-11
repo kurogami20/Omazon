@@ -8,13 +8,13 @@ interface SearchResultProps {
 const SearchResult = ({ result }: SearchResultProps) => {
   return (
     <ul className="products">
-      {result.map((product) => (
+        {result[0]?(  result.map((product) => (
         <li key={product.id}>
           <NavLink to={`/articles/${product.slug}`}>
             <ProductCard product={product} />
           </NavLink>
         </li>
-      ))}
+      ))):"Il n'existe aucun produits correspondant à votre recherche."}
     </ul>
   );
 };

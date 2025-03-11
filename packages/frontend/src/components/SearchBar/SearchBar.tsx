@@ -30,9 +30,8 @@ export default function SearchBar({
     if (productFiltered && searchText) {
       search(productFiltered);
       setSearchText('');
-      navigate('/search');
+      navigate(`/search/${searchText}`);
     }
-    // event.currentTarget.reset();
   }
 
   return (
@@ -68,7 +67,7 @@ export default function SearchBar({
           {filteredSearch.map((prod) => (
             <li
               className="result"
-              key={prod.slug}
+              key={prod.id}
               onClick={() => {
                 setSearchText('');
               }}

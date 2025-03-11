@@ -15,6 +15,7 @@ const CategoriesPage = ({ categories }: CategoriesPageProps) => {
         <ul className="categories">
           {categories.map((category) => (
             <li key={category.id}>
+              
               <CategoryCard category={category} />
             </li>
           ))}

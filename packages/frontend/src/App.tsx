@@ -61,7 +61,7 @@ export default function App() {
             element={<CategoriesPage categories={categoryTab} />}
           />
           <Route
-            path="/search"
+            path="/search/:slug"
             element={<SearchResultPage result={productSearched} />}
           />
           <Route path="*" element={<NotFound />} />
