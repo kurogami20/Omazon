@@ -12,6 +12,8 @@ import CategoriesPage from '@pages/CategoriesPage/CategoriesPage';
 import ProductPage from '@pages/ProductPage/ProductPage';
 import CategoryPage from '@pages/categoryPage/CategoryPage';
 import NotFound from '@pages/NotFound/NotFound';
+import SearchResultPage from '@pages/SearchResultPage/SearchResultPage';
+
 export default function App() {
   const [categoryTab, setCategoryTab] = useState<ICategory[]>([]);
   const [productTab, setProductTab] = useState<IProduct[]>([]);
@@ -57,6 +59,10 @@ export default function App() {
           <Route
             path="/categories"
             element={<CategoriesPage categories={categoryTab} />}
+          />
+          <Route
+            path="/search"
+            element={<SearchResultPage result={productSearched} />}
           />
           <Route path="*" element={<NotFound />} />
         </Routes>

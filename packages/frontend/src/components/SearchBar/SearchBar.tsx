@@ -1,8 +1,8 @@
 import MagnifyingGlassIcon from '@assets/icons/magnifying-glass.svg?react';
 import type { ICategory, IProduct } from 'src/@types';
 import './SearchBar.scss';
-import { FormEvent, useState } from 'react';
-import { NavLink } from 'react-router';
+import { type FormEvent, useState } from 'react';
+import { NavLink, useNavigate } from 'react-router';
 interface SearchBarProps {
   categories: ICategory[];
   products: IProduct[];
@@ -20,15 +20,17 @@ export default function SearchBar({
   );
 
   const hidden = searchText ? 'results' : 'results hidden';
+  const navigate = useNavigate();
 
   function searchSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const productFiltered = products.filter((product) =>
       product.title.toLowerCase().includes(searchText.toLowerCase()),
     );
-    if (productFiltered) {
+    if (productFiltered && searchText) {
       search(productFiltered);
-      document.querySelector('#category_home')?.classList.add('hidden');
+      setSearchText('');
+      navigate('/search');
     }
     // event.currentTarget.reset();
   }
@@ -55,6 +57,9 @@ export default function SearchBar({
           value={searchText}
           onChange={(event) => {
             setSearchText(event.currentTarget.value);
+            document.addEventListener('click', (event) => {
+              event.currentTarget?.querySelector('ul').classList.add('hidden');
+            });
           }}
         />
 
